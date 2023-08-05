@@ -1,0 +1,22 @@
+
+
+---
+- name: Check operating system
+  hosts: all
+  gather_facts: yes
+
+  tasks:
+  - name: Display OS information
+    debug:
+      var: ansible_distribution
+
+  - name: Install a package based on OS
+    when: ansible_distribution == 'Ubuntu'
+    apt:
+      name: apache2
+      state: present
+    when: ansible_distribution == 'CentOS'
+    yum:
+      name: httpd
+      state: present
+
