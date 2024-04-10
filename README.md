@@ -2,6 +2,9 @@
 
 "Ansible is a powerful configuration management tool designed to facilitate the installation, maintenance, management, and updating of packages on servers through automation. It supports YAML, a human-readable programming language, for defining tasks and configurations. Utilizing a push-based mechanism, Ansible allows users to define tasks on a central server, which are then automatically configured on the target servers. One of its key advantages is its agentless architecture, eliminating the need to install Ansible on the nodes or hosted servers, thereby simplifying management and reducing overhead."
 
+**ANSIBLE CONFIGURATION:
+
+
 
 
 - **1ST TASK:**
