@@ -1,0 +1,22 @@
+
+---
+
+###### install and start nginx on the servers
+
+- name: install and start nginx
+  hosts: Devops
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+
+#### define tasks need to be configured on the nodes
+
+  tasks:
+    - name: install nginx on the servers
+      action: yum name=nginx state=present
+
+    - name: start nginx on the servers
+      action: service name=nginx state=started
+
+
