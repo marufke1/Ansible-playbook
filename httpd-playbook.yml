@@ -1,0 +1,22 @@
+
+---
+
+## install and start httpd on the servers
+
+## starting with target information that allows to provide detail info about the ansible playbook...
+
+- name: install and start httpd on the servers
+  hosts: all
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+
+## define the tasks need to be configured on the nodes
+
+  tasks:
+    - name: install httpd on the servers
+      action: yum name=httpd state=present
+
+    - name: start httpd on the servers
+      action: service name=httpd state=started
