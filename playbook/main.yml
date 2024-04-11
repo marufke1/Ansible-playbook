@@ -1,0 +1,8 @@
+
+
+###### this is my main.yml file where defines the task needs to be configured on the nodes.
+
+- name: install apache
+  yum: pkg=httpd state=present
+
+

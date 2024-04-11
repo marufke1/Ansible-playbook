@@ -1,0 +1,18 @@
+
+
+---
+
+##### this is my master.yml file where defines the traget group information for the playbook and role which is "webserver"
+##### that allows to execute the task configuration on the servers which is already defines in the role.
+
+#### target group:
+
+- name: install apache
+  hosts: all
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+
+  roles:
+    - webserver
