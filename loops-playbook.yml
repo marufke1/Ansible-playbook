@@ -1,0 +1,24 @@
+
+---
+
+#### Ansible loops allows to execute the task multiple times on the servers.
+
+## target information:
+
+- name: list of the users
+  hosts: all
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+
+## task definition:
+
+  tasks:
+    - name: add a list of the users
+      user: name='{{item}}' state=present
+      with items:  ##### define the user names in the item that allows to create all the users one by one
+        - mike
+        - alex
+        - john
+        - katie 
