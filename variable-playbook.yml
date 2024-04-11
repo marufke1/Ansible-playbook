@@ -1,0 +1,25 @@
+
+---
+
+## Variable is going to allow to store the value and we can change the value of the variable in the future.....
+
+## target group information....
+
+- name: install httpd server by using variable
+  hosts: all
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+
+## define the values to store into a varibale, key_package and value_httpd. if we want to install any different package
+#in the future then just need to change the value of the variable like value_jenkins...
+
+  vars:
+    pkgname: httpd
+
+  tasks:
+    - name: install httpd on the servers
+      action: yum name="{{pkgname}}" state=present
+
+
