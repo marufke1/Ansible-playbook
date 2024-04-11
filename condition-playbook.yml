@@ -1,0 +1,26 @@
+
+---
+
+### Condition is going to allow to execute the task based on the scenario
+## conditions are:
+## if server is running with ubuntu os from debian family then install = apache 
+## if server is running with amazon linux from Redhat familly then install = httpd...
+
+###### target information:
+
+- name: install apache and httpd on different servers
+  hosts: all
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+
+  tasks:
+    - name: install apache on debian
+      command: apt-get -y install apache      #### command is a module that allows to execute the linux command 
+      when: ansible_os_familly == "Debian"    ##### when is a module that normally uses for the condition... 
+
+    - name: install httpd on Redhat
+      command: yum -y install httpd
+      when: ansible_os_familly == "RedHat"
+
