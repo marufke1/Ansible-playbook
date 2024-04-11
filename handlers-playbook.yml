@@ -1,0 +1,27 @@
+
+---
+
+## ansible handlers is performing multiple tasks as a dependencies means- after executing the 1st task
+# then only second task can be executed.
+
+### target information:
+
+- name: install httpd server on the nodes
+  hosts: all
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+
+### define the task
+
+  tasks:
+    - name: install httpd server
+      action: yum name=httpd state=present
+      notify: restart httpd
+
+  handlers: #### handler defines 2nd task will only be executed if httpd successfully installs on the server
+    - name: restart httpd server
+      action: service name=httpd state=restart 
+
+  
