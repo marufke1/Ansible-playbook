@@ -87,6 +87,7 @@ providing complete description how to configure ansible master and connecting wi
  - **ssh-copy-id ansible@172.31.1.228 #### node 2**
  -  Varify to connect between master and nodes
  - **ssh 172.31.8.50 ##### it will directly establish a connection without having any password authention**
+   
 
 
  - **DIFFERENT TYPES OF COMMANDS:** tHERE ARE THREE DIFFERENT TYPES OF COMMANDS ARE AVALIBLE FOR ANSIBNLE TO CONFIGURE THE NODES
