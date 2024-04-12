@@ -24,10 +24,12 @@ providing complete description how to configure ansible master and connecting wi
    
 
  - **STEP 2:** After installing ansible on the master server that will create Ansible INVENTORY and CONFIGURATION file by default.
+ 
  - **Inventory file:** Inventory file is the default file for ansible. It is also called hosts file as well. Inventory file is going to allow to store
    private ip address of the nodes so that ansible master exactly knows whatever nodes need to be configured. Asible creates an inventory file by using
    default location which is **/etc/ansible/hosts**.
-
+ 
+ - 
   
  
   
