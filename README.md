@@ -35,8 +35,15 @@ providing complete description how to configure ansible master and connecting wi
  - **[Devops]** ### this group has 2 nodes.
  - 172.31.8.50 ### node 1
  - 172.31.1.228 ### node 2
- - finally ansible master server has the information of the for the nodes need to be configured.
- -   
+ - finally ansible master server has the information of the nodes need to be configured.
+
+
+ - **STEP 3:** Updating the configuration file is an optional only require when we store the private ip of the nodes inside of the default inventory file.
+ - default configuration file location is: **/etc/ansible/ansible.cfg**
+ - we need to make some changes insode of this configuration file that allows to **uncomment the inventory file and sudo user.**
+ - so that ansible master can successfully configure the nodes.
+
+   
  
   
   
