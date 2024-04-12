@@ -28,7 +28,6 @@ providing complete description how to configure ansible master and connecting wi
  - **Inventory file:** Inventory file is the default file for ansible. It is also called hosts file as well. Inventory file is going to allow to store
    private ip address of the nodes so that ansible master exactly knows whatever nodes need to be configured. Asible creates an inventory file by using
    default location which is **/etc/ansible/hosts**. we can store the private ip address of the nodes inside of the default inventory file.
- 
  - We also can create an inventiory file then store the nodes private ip inside of it by following commands.
  - **vi Inventroy**
  - we can define the group name for the nodes which is
@@ -43,7 +42,17 @@ providing complete description how to configure ansible master and connecting wi
  - we need to make some changes insode of this configuration file that allows to **uncomment the inventory file and sudo user.**
  - so that ansible master can successfully configure the nodes.
 
-   
+
+ - **STEP 4:** then we create a ansible user for the master and nodes that means can configure the nodes by using ansible user.
+ - root user is the main user which has sudo privilege and only use for administrative purposes.
+ - command for creating a new user:
+ - **useradd ansible**
+ - **passwd ansible**
+ - **su - ansible ## allows to switch the user to ansible.**
+ - must provide sudo previlege for ansibel user by following command
+ - visudo
+ - **ansible user ALL=(ALL) NOPASSWD: ALL**  #### allows to provide sudo permission to the anisble user for configuring the nodes.
+    
  
   
   
