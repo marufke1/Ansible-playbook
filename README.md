@@ -16,11 +16,18 @@ providing complete description how to configure ansible master and connecting wi
  - **yum install -y epel/epel-release-latest-7.noarch.rpm**
  - then need to update the ansible master server so that allows to install all the important dependencies for the installing the ansible successfully on the master server
  - **yum update -y**
- - afterthat we can install ansible on the master server by following this command
+ - after that we can install ansible on the master server by following this command
  - **yum install ansible -y**
  - finally, can varify to make sure ansible is properly installed on the master node.
  - **which ansible**
- - **ansible --version** 
+ - **ansible --version**
+
+ - **STEP 2:** After installing ansible on the master server that will create Ansible INVENTORY and CONFIGURATION file by default.
+ - **Inventory file:** Inventory file is the default file for ansible. It is also called hosts file as well. Inventory file is going to allow to store
+   private ip address of the nodes so that ansible master exactly knows whatever nodes need to be configured. Asible creates an inventory file by using
+   default location which is **/etc/ansible/hosts**.
+
+  
  
   
   
