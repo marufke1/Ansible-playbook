@@ -52,6 +52,20 @@ providing complete description how to configure ansible master and connecting wi
  - must provide sudo previlege for ansibel user by following command
  - visudo
  - **ansible user ALL=(ALL) NOPASSWD: ALL**  #### allows to provide sudo permission to the anisble user for configuring the nodes.
+
+
+ - **STEP 5:** Now, we can establish a SSH connection between master and nodes. We have to make some changes for the master and nodes server
+   that allows to establish a successfully connection between of them.
+ - **vi /etc/ssh/sshd_configure**  ### make some changes inside of this file
+ - few things need to be commented and uncommented for further processing.
+ - **permit root login**
+ - **passwd auth = yes**
+ - **##passwd auth = no**
+ - after that we need to restart the sshd configuration by following command
+ - **service sshd restart**
+ - finally we can establish a ssh connection between master and nodes by following commands.
+ - **ssh 172.31.8.50 #### connects with node 1**
+ - **ssh 172.31.1.228 #### connects with node 2** 
     
  
   
