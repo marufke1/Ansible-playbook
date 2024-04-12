@@ -27,10 +27,15 @@ providing complete description how to configure ansible master and connecting wi
  
  - **Inventory file:** Inventory file is the default file for ansible. It is also called hosts file as well. Inventory file is going to allow to store
    private ip address of the nodes so that ansible master exactly knows whatever nodes need to be configured. Asible creates an inventory file by using
-   default location which is **/etc/ansible/hosts**.
+   default location which is **/etc/ansible/hosts**. we can store the private ip address of the nodes inside of the default inventory file.
  
- - 
-  
+ - We also can create an inventiory file then store the nodes private ip inside of it by following commands
+ - **vi Inventroy**
+ - we can define the group name for the nodes which is
+ - **[Devops]**
+ - 172.31.8.50 ### node 1
+ - 172.31.1.228 ### node 2
+ -   
  
   
   
