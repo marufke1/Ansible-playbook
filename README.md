@@ -29,12 +29,13 @@ providing complete description how to configure ansible master and connecting wi
    private ip address of the nodes so that ansible master exactly knows whatever nodes need to be configured. Asible creates an inventory file by using
    default location which is **/etc/ansible/hosts**. we can store the private ip address of the nodes inside of the default inventory file.
  
- - We also can create an inventiory file then store the nodes private ip inside of it by following commands
+ - We also can create an inventiory file then store the nodes private ip inside of it by following commands.
  - **vi Inventroy**
  - we can define the group name for the nodes which is
- - **[Devops]**
+ - **[Devops]** ### this group has 2 nodes.
  - 172.31.8.50 ### node 1
  - 172.31.1.228 ### node 2
+ - finally ansible master server has the information of the for the nodes need to be configured.
  -   
  
   
