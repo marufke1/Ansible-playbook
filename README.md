@@ -5,6 +5,26 @@
 
 **ANSIBLE CONFIGURATION**:
 
+providing complete description how to configure ansible master and connecting with nodes.
+
+- I am going to launch 3 EC2 instances on AWS. I configure one EC2 instance as a master and others will be configured as a nodes. I will use ansible master to configure
+  the nodes. There are following steps need to be proceed.
+
+ - **STEP 1:** Firstly, I have to download the ansible package for the master server by using this following command.
+ - **wget https:// dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm**
+ - varify the download package by using = ls. If it is successfully downloaded then I need to install the package on the master server.
+ - **yum install -y epel/epel-release-latest-7.noarch.rpm**
+ - then need to update the ansible master server so that allows to install all the important dependencies for the installing the ansible successfully on the master server
+ - **yum update -y**
+ - afterthat we can install ansible on the master server by following this command
+ - **yum install ansible -y**
+ - finally, can varify to make sure ansible is properly installed on the master node.
+ - **which ansible**
+ - **ansible --version** 
+ 
+  
+  
+
 
 
 
