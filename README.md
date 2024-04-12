@@ -50,8 +50,12 @@ providing complete description how to configure ansible master and connecting wi
  - **passwd ansible**
  - **su - ansible ## allows to switch the user to ansible.**
  - must provide sudo previlege for ansibel user by following command
- - visudo
+ - visudo #### need to make this changes by using root.
  - **ansible user ALL=(ALL) NOPASSWD: ALL**  #### allows to provide sudo permission to the anisble user for configuring the nodes.
+ - varify to make sure ansible user has sudo permission
+ - ** su - ansible**
+ - **sudo yum install httpd -y**
+    
 
 
  - **STEP 5:** Now, we can establish a SSH connection between master and nodes. We have to make some changes for the master and nodes server
@@ -61,11 +65,28 @@ providing complete description how to configure ansible master and connecting wi
  - **permit root login**
  - **passwd auth = yes**
  - **##passwd auth = no**
- - after that we need to restart the sshd configuration by following command
+ - switch the user by following command.
+ - **su - ansible**
+ - after that we need to restart the sshd configuration for all the nodes by following command
  - **service sshd restart**
  - finally we can establish a ssh connection between master and nodes by following commands.
  - **ssh 172.31.8.50 #### connects with node 1**
- - **ssh 172.31.1.228 #### connects with node 2** 
+ - pass: XXX
+ - **ssh 172.31.1.228 #### connects with node 2**
+ - pass: XXX
+
+
+ - **STEP 6:** Whenever we are going to establish a connection between master and modes it will ask for password authentication. Simply can solve this problem
+   to generate a ssh key pair on the master node which has private and public key then need to copy the public key to the nodes that allow to acces from master to
+   without having any password authentication.
+ - **su - ansible**
+ - **ssh-keygen #### will generate ssh key pair**
+ - .ssh hidden file will generate
+ - copy the public key from master to nodes  by following command
+ - **ssh-copy-id ansible@172.31.8.50 #### node 1**
+ - **ssh-copy-id ansible@172.31.1.228 #### node 2**
+ -  Varify to connect between master and nodes
+ - **ssh 172.31.8.50 ##### it will directly establish a connection without having any password authention**
     
  
   
