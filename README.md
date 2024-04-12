@@ -21,6 +21,7 @@ providing complete description how to configure ansible master and connecting wi
  - finally, can varify to make sure ansible is properly installed on the master node.
  - **which ansible**
  - **ansible --version**
+   
 
  - **STEP 2:** After installing ansible on the master server that will create Ansible INVENTORY and CONFIGURATION file by default.
  - **Inventory file:** Inventory file is the default file for ansible. It is also called hosts file as well. Inventory file is going to allow to store
