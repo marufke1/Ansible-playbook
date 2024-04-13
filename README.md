@@ -91,9 +91,15 @@ providing complete description how to configure ansible master and connecting wi
 
 
  - **DIFFERENT TYPES OF COMMANDS:** There are 3 different types of command available for Ansible to configure the nodes.
+   
   1. **Ansible ADHOC command**
+
   2. **Module**
+
   3. **Playbook**
+     
+     
+
     
  
   
