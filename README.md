@@ -107,7 +107,7 @@ providing complete description how to configure ansible master and connecting wi
      - **ansible -i inventory all -a "df -h"**
 
 
-    2. **Ansible MODULE command:** 
+    
      
      
 
