@@ -168,17 +168,20 @@ providing complete description how to configure ansible master and connecting wi
    - **create a file which is main.yml inside of the tasks directory and defines the tasks need to be performed on the nodes**
    -  **vi playbook/roles/webserver/tasks/main.yml**
      
-   -  name: install nginx on the nodes
-      yum:
-         name: nginx
-         state: present
+   -  **tasks: provides the tasks information**
+     
+           -  name: install nginx on the nodes
+              yum:
+                name: nginx
+                state: present
       
-   -  name: start nginx on the nodes
-      service:
-         name: nginx
-         state: started
+           -  name: start nginx on the nodes
+              service:
+                name: nginx
+                state: started
 
    - **create an another file which is master.yml that contains the information like- target group and role names**
+     
    - **vi master.yml**
   
    - **---**
