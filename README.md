@@ -100,7 +100,7 @@ providing complete description how to configure ansible master and connecting wi
      - listing the files and dir
      - checking the memory and storage for the nodes 
      - installing packages on the nodes etc... **(normally don't use adhoc command to install any packages on the nodes.)**
-     - Ad hoc commands exaples:
+     - **Ad hoc commands exaples:**
      - **ansible -i inventory all -a "touch file1"**
      - **ansible -i inventory all -a "ls"**
      - **ansible -i inventory all -ba "yum install httpd -y"**
@@ -112,17 +112,27 @@ providing complete description how to configure ansible master and connecting wi
     but mostly used for installing packages on the nodes.
     - creating a file on the nodes and other simple tasks as well
     - installing different packages on the nodes but only if we want to perform a single taks like install httpd on the nodes.
-    - Module commands examples:
+    - **Module commands examples:**
     - **ansible -i inventory -m "shell" -a "touch file1" ### m = is for module we define which is shell allows to use touch command to creat a file.**
     - **ansible -i inventroy -m "shell" -a "mkdir Devops"**
     - **ansible -i inventory -m "shell" -a "free -m"**
     - **ansible -i inventory -b -m "yum" -a pkg=httpd state=present**
    
       
-
-
-    
-     
+3. **Ansible Playbook command: Ansible playbook command use to perform multiple tasks on the nodes like installing httpd and then starting httpd on the
+   server. ansible playbook is written by yml language which is very easy to understand and human redable. when we define multple module for the task then
+   it becomes a playbook. Ansible playbook can perform different tasks on the nodes as well like- create a file and directory etc...
+   - installing different packages on the nodes but only if we want to perform a multiple tasks like install and starting httpd server on the nodes.
+   - **Ansible play-book example:**
+   - **vi playbook.yml ### must use yml extension for the ansible file/playbook**
+   - **--- ## always start with three dashes that indicates this is yml file**
+   - **Target group info ## allows to provide the info about the play book like name, hosts, user, become, gather_facts etc..**
+   - - **name: install and starting nginx on the nodes**   
+       **hosts: Devops**
+       **user: ansible**
+       **become: yes ### provides root permission for the ansible user to perform the tasks on the nodes**
+       **connection: ssh**
+       **gather_facts: yes**   
      
 
     
