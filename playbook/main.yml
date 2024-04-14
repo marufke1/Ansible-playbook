@@ -2,7 +2,14 @@
 
 ###### this is my main.yml file where defines the task needs to be configured on the nodes.
 
-- name: install apache
-  yum: pkg=httpd state=present
+- name: install httpd on the nodes
+  yum:
+    name: httpd
+    state: present
+
+- name: start httpd o the nodes
+  service:
+    name: httpd
+    state: started
 
 
