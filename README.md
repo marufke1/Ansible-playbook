@@ -92,7 +92,7 @@ providing complete description how to configure ansible master and connecting wi
 
  - **DIFFERENT TYPES OF COMMANDS:** There are 3 different types of command available for Ansible to configure the nodes.
    
-  1. **Ansible ADHOC command** ADHOC command is a simple linux shell command. ADHOC command commonly use to perform single task on the nodes.
+  1. **ANSIBLE ADHOC COMMAND** ADHOC command is a simple linux shell command. ADHOC command commonly use to perform single task on the nodes.
      Different types of configuration can be done by using ad hoc commands like-
      - creating a file on the nodes
      - creating a directory
@@ -100,31 +100,33 @@ providing complete description how to configure ansible master and connecting wi
      - listing the files and dir
      - checking the memory and storage for the nodes 
      - installing packages on the nodes etc... **(normally don't use adhoc command to install any packages on the nodes.)**
-     - **Ad hoc commands exaples:**
+       
+     - **ADHOC COMMANDS EXAPMPLES:**
      - **ansible -i inventory all -a "touch file1"**
      - **ansible -i inventory all -a "ls"**
      - **ansible -i inventory all -ba "yum install httpd -y"**
      - **ansible -i inventory all -a "df -h"**
     
 
- 2. **Ansible MODULE command** Module command use to perform single task on the nodes like ad hoc command but the main difference is to define the
+ 2. **ANSIBLE MODULE COMMAND** Module command use to perform single task on the nodes like ad hoc command but the main difference is to define the
     task for the nodes by using yml language. when we define multiple modules that becomes a playbook. Module can perform any types of configuration
     but mostly used for installing packages on the nodes.
     - creating a file on the nodes and other simple tasks as well
     - installing different packages on the nodes but only if we want to perform a single taks like install httpd on the nodes.
-    - **Module commands examples:**
+      
+    - **MODULE COMMANDS EXAMPLES:**
     - **ansible -i inventory -m "shell" -a "touch file1" ### m = is for module we define which is shell allows to use touch command to creat a file.**
     - **ansible -i inventroy -m "shell" -a "mkdir Devops"**
     - **ansible -i inventory -m "shell" -a "free -m"**
     - **ansible -i inventory -b -m "yum" -a pkg=httpd state=present**
    
       
-3. **Ansible Playbook command:** Ansible playbook command use to perform multiple tasks on the nodes like installing httpd and then starting httpd on the
+3. **ANSIBLE PLAYBOOK:** Ansible playbook command use to perform multiple tasks on the nodes like installing httpd and then starting httpd on the
    server. ansible playbook is written by yml language which is very easy to understand and human redable. when we define multple module for the task then
    it becomes a playbook. Ansible playbook can perform different tasks on the nodes as well like- create a file and directory etc...
    - installing different packages on the nodes but only if we want to perform a multiple tasks like install and starting httpd server on the nodes.
      
-   - **Ansible play-book example:**
+   - **ANSIBLE PLAYBOOK EXAMPLE:**
    - **vi playbook.yml ### must use yml extension for the ansible file/playbook**
      
    - **--- ## always start with three dashes that indicates this is yml file**
@@ -158,15 +160,16 @@ providing complete description how to configure ansible master and connecting wi
                     state: started
 
        **Execution: finally execute the play book that allows to install and start the nginx on the nodes**
+     
        **Execution command** **ansible-playbook -i inventory playbook.yml**
 
 
-4. **Ansible Role:** Ansible role is going to allow to write the playbook in more efficient way for an example: we are writing a play book
+4. **ANSIBLE ROLE:** Ansible role is going to allow to write the playbook in more efficient way for an example: we are writing a play book
    where defines so many tasks, variables, handlers, condition etc that creates a playbook very large even it will be very difficult to find
    out which task is being configured for what purposes. We easily can define roles for specific component and then just define the role name
    in the playbook that allows to configure the tasks on the nodes. 
 
-   **Ansible roles example:
+   **ANSIBLE ROLES EXAMPLE:**
    - **first I am going to create a parent directory by using follwing command mkdir -p playbook/roles/webserver/tasks**
    - **change the directory cd playbook/**
    - **create a file which is main.yml inside of the tasks directory and defines the tasks need to be performed on the nodes**
@@ -200,6 +203,7 @@ providing complete description how to configure ansible master and connecting wi
                    **- webserver**
 
    - **Execution: finally execute the master.yml playbook to perform apply the tasks on the nodes**
+   - 
    - **Execution command: ansible-playbook -i inventory master.yml**
 
     
