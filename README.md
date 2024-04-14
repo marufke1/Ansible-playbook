@@ -126,32 +126,35 @@ providing complete description how to configure ansible master and connecting wi
      
    - **Ansible play-book example:**
    - **vi playbook.yml ### must use yml extension for the ansible file/playbook**
+     
    - **--- ## always start with three dashes that indicates this is yml file**
    - **Target group info ## allows to provide the info about the play book like name, hosts, user, become, gather_facts etc..**
      
-     - **name: install and starting nginx on the nodes**
+          - **name: install and starting nginx on the nodes**
         
-       **hosts: Devops**
+            **hosts: Devops**
        
-       **user: ansible**
+            **user: ansible**
        
-       **become: yes ### provides root permission for the ansible user to perform the tasks on the nodes**
+            **become: yes ### provides root permission for the ansible user to perform the tasks on the nodes**
        
-       **connection: ssh**
+            **connection: ssh**
        
-       **gather_facts: yes**
+            **gather_facts: yes ### gather the private ip addresses of the nodes**
 
        **tasks: ### provides the tasks information need to be performed on the nodes.**
+  
+            **tasks:
 
-           - name: install nginx on the ndoes
-             yum:
-                 name: nginx
-                 state: present
+                - name: install nginx on the ndoes
+                  yum:
+                    name: nginx
+                    state: present
 
-           - name: start nginx on the nodes
-             service:
-                 name: nginx
-                 state: started
+                - name: start nginx on the nodes
+                  service:
+                    name: nginx
+                    state: started
 
        **Execution: finally execute the play book that allows to install and start the nginx on the nodes**
        **Execution command** **ansible-playbook -i inventory playbook.yml**
