@@ -130,6 +130,7 @@ providing complete description how to configure ansible master and connecting wi
    - **--- ## always start with three dashes that indicates this is yml file**
    - **Target group info ## allows to provide the info about the play book like name, hosts, user, become, gather_facts etc..**
      
+           ---    
           - **name: install and starting nginx on the nodes**
         
             **hosts: Devops**
@@ -169,6 +170,7 @@ providing complete description how to configure ansible master and connecting wi
    - **first I am going to create a parent directory by using follwing command mkdir -p playbook/roles/webserver/tasks**
    - **change the directory cd playbook/**
    - **create a file which is main.yml inside of the tasks directory and defines the tasks need to be performed on the nodes**
+     
    -  **vi playbook/roles/webserver/tasks/main.yml**
      
    -  **tasks: provides the tasks information**
