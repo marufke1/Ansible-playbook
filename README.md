@@ -189,15 +189,15 @@ providing complete description how to configure ansible master and connecting wi
      
    - **vi master.yml**
   
-   - **---**
-   -  **name: install and starting niginx on the nodes**
-      **hosts: Devops**
-      **user: ansible**
-      **become: yes**
-      **connection: ssh**
-      **gather_facts: yes**
-      **roles:**
-            **- webserver**
+           ---
+           -  **name: install and starting niginx on the nodes**
+              **hosts: Devops**
+              **user: ansible**
+              **become: yes**
+              **connection: ssh**
+              **gather_facts: yes**
+              **roles:**
+                   **- webserver**
 
    - **Execution: finally execute the master.yml playbook to perform apply the tasks on the nodes**
    - **Execution command: ansible-playbook -i inventory master.yml**
