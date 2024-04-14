@@ -128,7 +128,7 @@ providing complete description how to configure ansible master and connecting wi
    - **--- ## always start with three dashes that indicates this is yml file**
    - **Target group info ## allows to provide the info about the play book like name, hosts, user, become, gather_facts etc..**
      
-   - - **name: install and starting nginx on the nodes**
+     - **name: install and starting nginx on the nodes**
         
        **hosts: Devops**
        
@@ -138,7 +138,22 @@ providing complete description how to configure ansible master and connecting wi
        
        **connection: ssh**
        
-       **gather_facts: yes**   
+       **gather_facts: yes**
+
+       **tasks: ### provides the tasks information need to be performed on the nodes.**
+
+           - name: install nginx on the ndoes
+             yum:
+                 name: nginx
+                 state: present
+
+           - name: start nginx on the nodes
+             service:
+                 name: nginx
+                 state: started
+
+       **Execute: finally execute the play book that allows to install and start the nginx on the nodes**
+       **Execution command** **ansible-playbook -i inventory playbook.yml**
      
 
     
@@ -146,7 +161,7 @@ providing complete description how to configure ansible master and connecting wi
   
   
 
-- **Projects:**
+   - **Projects:**
 
 
 - **1ST TASK:**
