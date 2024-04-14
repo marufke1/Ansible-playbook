@@ -127,11 +127,17 @@ providing complete description how to configure ansible master and connecting wi
    - **vi playbook.yml ### must use yml extension for the ansible file/playbook**
    - **--- ## always start with three dashes that indicates this is yml file**
    - **Target group info ## allows to provide the info about the play book like name, hosts, user, become, gather_facts etc..**
-   - - **name: install and starting nginx on the nodes**   
+     
+   - - **name: install and starting nginx on the nodes**
+        
        **hosts: Devops**
+       
        **user: ansible**
+       
        **become: yes ### provides root permission for the ansible user to perform the tasks on the nodes**
+       
        **connection: ssh**
+       
        **gather_facts: yes**   
      
 
