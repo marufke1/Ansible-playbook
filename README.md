@@ -92,11 +92,22 @@ providing complete description how to configure ansible master and connecting wi
 
  - **DIFFERENT TYPES OF COMMANDS:** There are 3 different types of command available for Ansible to configure the nodes.
    
-  1. **Ansible ADHOC command**
+  1. **Ansible ADHOC command** ADHOC command is a simple linux shell command. ADHOC command commonly use to perform single task on the nodes.
+     Different types of configuration can be done by using ad hoc commands like-
+     - creating a file on the nodes
+     - creating a directory
+     - removing file and directory
+     - listing the files and dir
+     - checking the memory and storage for the nodes 
+     - installing packages on the nodes etc...
+     - Ad hoc commands exaples:
+     - **ansible -i inventory all -a "touch file1"**
+     - **ansible -i inventory all -a "ls"**
+     - **ansible -i inventory all -a "yum install httpd -y"**
+     - **ansible -i inventory all -a "df -h"**
 
-  2. **Module**
 
-  3. **Playbook**
+    2. **Ansible MODULE command:** 
      
      
 
