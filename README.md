@@ -123,6 +123,7 @@ providing complete description how to configure ansible master and connecting wi
    server. ansible playbook is written by yml language which is very easy to understand and human redable. when we define multple module for the task then
    it becomes a playbook. Ansible playbook can perform different tasks on the nodes as well like- create a file and directory etc...
    - installing different packages on the nodes but only if we want to perform a multiple tasks like install and starting httpd server on the nodes.
+     
    - **Ansible play-book example:**
    - **vi playbook.yml ### must use yml extension for the ansible file/playbook**
    - **--- ## always start with three dashes that indicates this is yml file**
@@ -152,32 +153,66 @@ providing complete description how to configure ansible master and connecting wi
                  name: nginx
                  state: started
 
-       **Execute: finally execute the play book that allows to install and start the nginx on the nodes**
+       **Execution: finally execute the play book that allows to install and start the nginx on the nodes**
        **Execution command** **ansible-playbook -i inventory playbook.yml**
+
+
+4. **Ansible Role:** Ansible role is going to allow to write the playbook in more efficient way for an example: we are writing a play book
+   where defines so many tasks, variables, handlers, condition etc that creates a playbook very large even it will be very difficult to find
+   out which task is being configured for what purposes. We easily can define roles for specific component and then just define the role name
+   in the playbook that allows to configure the tasks on the nodes. 
+
+   **Ansible roles example:
+   - **first I am going to create a parent directory by using follwing command mkdir -p playbook/roles/webserver/tasks**
+   - **change the directory cd playbook/**
+   - **create a file which is main.yml inside of the tasks directory and defines the tasks need to be performed on the nodes**
+   -  **vi playbook/roles/webserver/tasks/main.yml**
      
+   -  name: install nginx on the nodes
+      yum:
+         name: nginx
+         state: present
+      
+   -  name: start nginx on the nodes
+      service:
+         name: nginx
+         state: started
+
+   - **create an another file which is master.yml that contains the information like- target group and role names**
+   - **vi master.yml**
+  
+   - **---**
+   -  **name: install and starting niginx on the nodes**
+      **hosts: Devops**
+      **user: ansible**
+      **become: yes**
+      **connection: ssh**
+      **gather_facts: yes**
+      **roles:**
+            **- webserver**
+
+   - **Execution: finally execute the master.yml playbook to perform apply the tasks on the nodes**
+   - **Execution command: ansible-playbook -i inventory master.yml**
 
     
- 
-  
-  
-
-   - **Projects:**
+   - **PROJECTS:**
 
 
-- **1ST TASK:**
-I LAUNCH 3 EC2 INSTANCES ON AWS. I CONFIGURED 1 EC2 INSTANCE AS AN ANSIBLE MASTER AND OTHER EC2 INSTANCES HAVE BEEN CONFIGURED AS A NODES.
-NODE 1 IS RUNNING WITH UBUNTU O/S AND NODE 2 IS RUNNING ON REDHAT CENTOS O/S
-ANSIBLE PLAYBOOK WILL CHECK THE O/S OF THE NODES IF ANY NODE IS RUNNING ON UBUNTU THEN SIMPLY INSTALL APACHE SERVER ON IT AND IF ANY SERVER
-IS RUNNING ON CENTOS THEN INSTALL HTTPD SERVER ON THE NODE. FINALLY I DEFINE GATHER_FACTS == YES THAT WILL ALLOW TO REPLACE THE HOST PARAMETER 
-BASE ON THE REQUIREMENTS.
+   - **1ST TASK:**
+   I LAUNCH 3 EC2 INSTANCES ON AWS. I CONFIGURED 1 EC2 INSTANCE AS AN ANSIBLE MASTER AND OTHER EC2 INSTANCES HAVE BEEN CONFIGURED AS A NODES.
+   NODE 1 IS RUNNING WITH UBUNTU O/S AND NODE 2 IS RUNNING ON REDHAT CENTOS O/S ANSIBLE PLAYBOOK WILL CHECK THE O/S OF THE NODES IF ANY NODE
+   IS RUNNING ON UBUNTU THEN SIMPLY INSTALL APACHE SERVER ON IT AND IF ANY SERVER IS RUNNING ON CENTOS THEN INSTALL HTTPD SERVER ON THE NODE.
+   FINALLY I DEFINE GATHER_FACTS == YES THAT WILL ALLOW TO REPLACE THE HOST PARAMETER BASE ON THE REQUIREMENTS.
 
-- **2ND TASK:**
-I CONGIFURE JAVA (JDK VERSION -8) ON BOTH OF THE NODES BY USING ANSIBLE MASTER THAT IS PREQUSITE TO INSTALL JENKINS ON THE NODES.
+   - **2ND TASK:**
+   I CONGIFURE JAVA (JDK VERSION -8) ON BOTH OF THE NODES BY USING ANSIBLE MASTER THAT IS PREQUSITE TO INSTALL JENKINS ON THE NODES.
 
-- **3RD TASK:**
-AFTER SUCESSFULLY, INSTALLING JAVA ON THE NODES THEN I CONFIGURE/INSTALL JENKINS ON THE NODES AND FINALLY STARTING THE JENKINS SERVICE AND ENBALING IT TO START ON REBOOT.
+   - **3RD TASK:**
+   AFTER SUCESSFULLY, INSTALLING JAVA ON THE NODES THEN I CONFIGURE/INSTALL JENKINS ON THE NODES AND FINALLY STARTING THE JENKINS SERVICE AND
+   ENBALING IT TO START ON REBOOT.
 
-- **EXCUTE PLAYBOOKS BY FOLLOWING COMMANDS:**
-- ANSIBLE-PLAYBOOK OS-CHECKS.YML
-- ANSIBLE-PLAYBOOK JAVA.YML
-- ANSIBLE-PLAYBOOK JENKINS.YML
+
+  - **EXCUTE PLAYBOOKS BY FOLLOWING COMMANDS:**
+  - **ANSIBLE-PLAYBOOK OS-CHECKS.YML**
+  - **ANSIBLE-PLAYBOOK JAVA.YML**
+  - **ANSIBLE-PLAYBOOK JENKINS.YML**
