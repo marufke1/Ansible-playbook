@@ -119,7 +119,7 @@ providing complete description how to configure ansible master and connecting wi
     - **ansible -i inventory -b -m "yum" -a pkg=httpd state=present**
    
       
-3. **Ansible Playbook command: Ansible playbook command use to perform multiple tasks on the nodes like installing httpd and then starting httpd on the
+3. **Ansible Playbook command:** Ansible playbook command use to perform multiple tasks on the nodes like installing httpd and then starting httpd on the
    server. ansible playbook is written by yml language which is very easy to understand and human redable. when we define multple module for the task then
    it becomes a playbook. Ansible playbook can perform different tasks on the nodes as well like- create a file and directory etc...
    - installing different packages on the nodes but only if we want to perform a multiple tasks like install and starting httpd server on the nodes.
